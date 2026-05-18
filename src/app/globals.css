@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  
+  /* Pokemon Type Colors */
+  --color-pokemon-normal: #A8A878;
+  --color-pokemon-fire: #F08030;
+  --color-pokemon-water: #6890F0;
+  --color-pokemon-electric: #F8D030;
+  --color-pokemon-grass: #78C850;
+  --color-pokemon-ice: #98D8D8;
+  --color-pokemon-fighting: #C03028;
+  --color-pokemon-poison: #A040A0;
+  --color-pokemon-ground: #E0C068;
+  --color-pokemon-flying: #A890F0;
+  --color-pokemon-psychic: #F85888;
+  --color-pokemon-bug: #A8B820;
+  --color-pokemon-rock: #B8A038;
+  --color-pokemon-ghost: #705898;
+  --color-pokemon-dragon: #7038F8;
+  --color-pokemon-dark: #705848;
+  --color-pokemon-steel: #B8B8D0;
+  --color-pokemon-fairy: #EE99AC;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
