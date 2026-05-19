@@ -1,4 +1,4 @@
-# Welcome to your Expo app 👋
+# Welcome to Pokedex_
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
@@ -34,6 +34,32 @@ npm run reset-project
 ```
 
 This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+
+## Project setup
+
+- [Tailwind CSS](https://tailwindcss.com/): A utility-first CSS framework for building modern websites and applications.
+- [React Native](https://reactnative.dev/): A framework for building native mobile apps using React.
+
+## Project structure
+
+```
+app/                    ← Dossier de routage (Expo Router)
+  _layout.tsx           ← Composition Root (Providers : QueryClient, Theme, etc.)
+  index.tsx             ← Point d'entrée de l'UI (utilise la feature pokedex)
+
+features/               ← Logique métier et UI par "use-case"
+  pokedex/
+    index.ts            ← Point d'entrée unique de la feature
+    PokedexList.tsx     ← Composant UI de la liste
+    PokemonCard.tsx     ← Composant UI de la carte
+    usePokedex.ts       ← Hook métier (Logique)
+    pokedex.types.ts    ← Schémas Zod et Types pour cette feature
+
+services/               ← I/O uniquement (Aucune UI, aucun hook)
+  api/
+    client.ts           ← Wrapper fetch maison (~50 lignes)
+    pokeapi.ts          ← Service spécifique à PokeAPI (dépend du client)
+```
 
 ## Learn more
 
