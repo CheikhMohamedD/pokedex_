@@ -1,16 +1,30 @@
-import "@/global.css";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import "../global.css";
 import { Stack } from "expo-router";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { StatusBar } from "expo-status-bar";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 2,
+      staleTime: 30_000,
+    },
+    mutations: {
+      retry: 0,
+    },
+  },
+});
 
 export default function RootLayout() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Stack>
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="pokemon/[id]" options={{ headerShown: false }} />
-      </Stack>
+      <StatusBar style="dark" />
+      <Stack
+        screenOptions={{
+          headerShown: false,
+          contentStyle: { backgroundColor: "#FFFFFF" },
+        }}
+      />
     </QueryClientProvider>
   );
 }
